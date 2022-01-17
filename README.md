@@ -6,7 +6,9 @@ a small sample on how to setup contract testing
 Modules:
 
 api = api producer
-contract contains shared contract
+
+contract = shared contract from producer to consumer
+
 consumer = sample approach on how to use the stubs
 
 
