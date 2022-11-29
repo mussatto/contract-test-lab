@@ -1,8 +1,11 @@
 package lab.api;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class PersonService {
     private final Map<Long, Person> personMap;
 

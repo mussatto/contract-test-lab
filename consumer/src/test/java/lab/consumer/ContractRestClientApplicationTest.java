@@ -1,6 +1,7 @@
 package lab.consumer;
 
 import org.assertj.core.api.BDDAssertions;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.cloud.contract.stubrunner.junit.StubRunnerExtension;
@@ -11,8 +12,9 @@ import org.springframework.web.client.RestTemplate;
 public class ContractRestClientApplicationTest {
 
     @RegisterExtension
-    public StubRunnerExtension stubRunner = new StubRunnerExtension()
-            .downloadStub("lab.contract", "contract", "1.0", "stubs")
+    public static StubRunnerExtension stubRunner = new StubRunnerExtension()
+            //SAME AS CONSUMER!!!
+            .downloadStub("lab.contractest", "contract", "0.1-SNAPSHOT", "stubs")
             .withPort(8100)
             .stubsMode(StubRunnerProperties.StubsMode.LOCAL);
 
