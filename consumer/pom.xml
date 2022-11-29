@@ -30,8 +30,10 @@
 		</dependency>
 		<dependency>
 			<groupId>lab.contractest</groupId>
-			<artifactId>contract</artifactId>
+			<artifactId>api</artifactId>
 			<version>0.1-SNAPSHOT</version>
+			<classifier>stubs</classifier>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

@@ -14,9 +14,9 @@ public class ContractRestClientApplicationTest {
     @RegisterExtension
     public static StubRunnerExtension stubRunner = new StubRunnerExtension()
             //SAME AS CONSUMER!!!
-            .downloadStub("lab.contractest", "contract", "0.1-SNAPSHOT", "stubs")
+            .downloadStub("lab.contractest", "api", "0.1-SNAPSHOT", "stubs")
             .withPort(8100)
-            .stubsMode(StubRunnerProperties.StubsMode.LOCAL);
+            .stubsMode(StubRunnerProperties.StubsMode.CLASSPATH);
 
     @Test
     public void get_person_from_service_contract() {
