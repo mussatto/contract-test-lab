@@ -16,4 +16,5 @@ public class PersonRestController {
     public Person findPersonById(@PathVariable("id") Long id) {
         return personService.findPersonById(id);
     }
+
 }

@@ -21,6 +21,6 @@ public class ContractBaseClass {
         RestAssuredMockMvc.standaloneSetup(personRestController);
 
         Mockito.when(personService.findPersonById(1L))
-                .thenReturn(new Person(1L, "foo", "bee"));
+                .thenReturn(new Person(1L, "foo","baa"));
     }
 }

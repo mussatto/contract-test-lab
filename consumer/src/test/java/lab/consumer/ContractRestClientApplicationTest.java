@@ -26,8 +26,8 @@ public class ContractRestClientApplicationTest {
 
         // then:
         BDDAssertions.then(personResponseEntity.getStatusCodeValue()).isEqualTo(200);
-        BDDAssertions.then(personResponseEntity.getBody().getId()).isEqualTo(1l);
+        BDDAssertions.then(personResponseEntity.getBody().getId()).isEqualTo(1L);
         BDDAssertions.then(personResponseEntity.getBody().getFirstName()).isEqualTo("foo");
-        BDDAssertions.then(personResponseEntity.getBody().getLastName()).isEqualTo("bee");
+        BDDAssertions.then(personResponseEntity.getBody().getLastName()).isEqualTo("baa");
     }
 }
