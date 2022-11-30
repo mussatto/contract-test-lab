@@ -9,7 +9,7 @@ import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-public class ContractRestClientApplicationTest {
+public class GeneralTest {
 
     @RegisterExtension
     public static StubRunnerExtension stubRunner = new StubRunnerExtension()
@@ -19,7 +19,7 @@ public class ContractRestClientApplicationTest {
             .stubsMode(StubRunnerProperties.StubsMode.CLASSPATH);
 
     @Test
-    public void get_person_from_service_contract() {
+    public void getPerson1() {
         // given:
         RestTemplate restTemplate = new RestTemplate();
 

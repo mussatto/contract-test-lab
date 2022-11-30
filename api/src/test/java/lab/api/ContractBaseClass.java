@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.util.Arrays;
+
 @SpringBootTest(classes = ContractTestApplication.class)
 public class ContractBaseClass {
 
@@ -26,5 +28,15 @@ public class ContractBaseClass {
                 .thenReturn(new Person(2L, "consumer","A"));
         Mockito.when(personService.findPersonById(3L))
                 .thenReturn(new Person(3L, "consumer","B"));
+
+
+        Mockito.when(personService.findAll())
+                .thenReturn(
+                        Arrays.asList(
+                                new Person(1L, "Richard","Smith"),
+                                new Person(2L, "Emma","Doe"),
+                                new Person(3L, "Anna","Lopez")
+                        )
+                );
     }
 }
