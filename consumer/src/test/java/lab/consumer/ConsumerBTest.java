@@ -10,6 +10,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class ConsumerBTest {
 
     @RegisterExtension
@@ -28,10 +30,10 @@ public class ConsumerBTest {
         ResponseEntity<Person> personResponseEntity = restTemplate.getForEntity("http://localhost:8100/person/3", Person.class);
 
         // then:
-        BDDAssertions.then(personResponseEntity.getStatusCodeValue()).isEqualTo(200);
-        BDDAssertions.then(personResponseEntity.getBody().getId()).isEqualTo(3L);
-        BDDAssertions.then(personResponseEntity.getBody().getFirstName()).isEqualTo("consumer");
-        BDDAssertions.then(personResponseEntity.getBody().getLastName()).isEqualTo("B");
+        assertThat(personResponseEntity.getStatusCodeValue()).isEqualTo(200);
+        assertThat(personResponseEntity.getBody().getId()).isEqualTo(3L);
+        assertThat(personResponseEntity.getBody().getFirstName()).isEqualTo("consumer");
+        assertThat(personResponseEntity.getBody().getLastName()).isEqualTo("B");
     }
 
     @Test
@@ -41,11 +43,10 @@ public class ConsumerBTest {
 
         // when:
         ResponseEntity<Person[]> personResponseEntity = restTemplate.getForEntity("http://localhost:8100/person", Person[].class);
-
+        Person[] persons = personResponseEntity.getBody();
         // then:
-        BDDAssertions.then(personResponseEntity.getStatusCodeValue()).isEqualTo(200);
-        BDDAssertions.then(personResponseEntity.getBody().getId()).isEqualTo(3L);
-        BDDAssertions.then(personResponseEntity.getBody().getFirstName()).isEqualTo("consumer");
-        BDDAssertions.then(personResponseEntity.getBody().getLastName()).isEqualTo("B");
+        assertThat(personResponseEntity.getStatusCodeValue()).isEqualTo(200);
+        assertThat(persons).isNotEmpty();
+        assertThat(persons).hasSize(3);
     }
 }

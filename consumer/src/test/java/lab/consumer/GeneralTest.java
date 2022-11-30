@@ -9,6 +9,8 @@ import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class GeneralTest {
 
     @RegisterExtension
@@ -27,9 +29,9 @@ public class GeneralTest {
         ResponseEntity<Person> personResponseEntity = restTemplate.getForEntity("http://localhost:8100/person/1", Person.class);
 
         // then:
-        BDDAssertions.then(personResponseEntity.getStatusCodeValue()).isEqualTo(200);
-        BDDAssertions.then(personResponseEntity.getBody().getId()).isEqualTo(1L);
-        BDDAssertions.then(personResponseEntity.getBody().getFirstName()).isEqualTo("foo");
-        BDDAssertions.then(personResponseEntity.getBody().getLastName()).isEqualTo("baa");
+        assertThat(personResponseEntity.getStatusCodeValue()).isEqualTo(200);
+        assertThat(personResponseEntity.getBody().getId()).isEqualTo(1L);
+        assertThat(personResponseEntity.getBody().getFirstName()).isEqualTo("foo");
+        assertThat(personResponseEntity.getBody().getLastName()).isEqualTo("baa");
     }
 }
