@@ -22,5 +22,9 @@ public class ContractBaseClass {
 
         Mockito.when(personService.findPersonById(1L))
                 .thenReturn(new Person(1L, "foo","baa"));
+        Mockito.when(personService.findPersonById(2L))
+                .thenReturn(new Person(2L, "consumer","A"));
+        Mockito.when(personService.findPersonById(3L))
+                .thenReturn(new Person(3L, "consumer","B"));
     }
 }

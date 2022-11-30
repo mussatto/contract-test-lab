@@ -2,7 +2,9 @@ package lab.api;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -18,5 +20,9 @@ public class PersonService {
 
     public Person findPersonById(long l) {
         return personMap.get(l);
+    }
+
+    public List<Person> findAll(){
+        return new ArrayList<>(personMap.values());
     }
 }
